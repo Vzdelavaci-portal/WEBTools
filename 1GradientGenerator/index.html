@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradient Generator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="app">
+    <h1>Gradient Generator</h1>
+
+    <p class="subtitle">
+      Pick colors, choose direction and copy the CSS gradient.
+    </p>
+
+    <div class="colors">
+
+      <div class="color-box">
+        <label for="color1">Color 1</label>
+        <input type="color" id="color1" value="#667eea">
+      </div>
+
+      <div class="color-box">
+        <label for="color2">Color 2</label>
+        <input type="color" id="color2" value="#764ba2">
+      </div>
+
+    </div>
+
+    <select id="direction">
+      <option value="135deg">Diagonal</option>
+      <option value="to right">Left to Right</option>
+      <option value="to left">Right to Left</option>
+      <option value="to bottom">Top to Bottom</option>
+      <option value="to top">Bottom to Top</option>
+      <option value="45deg">45°</option>
+      <option value="90deg">90°</option>
+      <option value="180deg">180°</option>
+    </select>
+
+    <div class="code-box" id="cssCode"></div>
+
+    <div class="buttons">
+      <button id="copyBtn">Copy CSS</button>
+      <button id="randomBtn">Random Gradient</button>
+    </div>
+
+    <p class="copy-message" id="copyMessage"></p>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
