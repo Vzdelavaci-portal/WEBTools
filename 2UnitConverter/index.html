@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Unit Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <div class="header">
+      <h1>🧮 Advanced Unit Converter</h1>
+      <p>Length, weight, temperature, volume, time, speed, data, energy, pressure, area and electrical units.</p>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+
+    <section class="converter">
+      <div class="grid">
+        <div class="box">
+          <label>Value</label>
+          <input type="number" id="inputValue" value="1" step="any">
+
+          <label style="margin-top:14px;">From Unit</label>
+          <select id="fromUnit"></select>
+        </div>
+
+        <button class="swap" id="swapBtn">↔</button>
+
+        <div class="box">
+          <label>Result</label>
+          <input type="text" id="outputValue" readonly>
+
+          <label style="margin-top:14px;">To Unit</label>
+          <select id="toUnit"></select>
+        </div>
+      </div>
+
+      <div class="result">
+        <small>Conversion Result</small>
+        <strong id="resultText"></strong>
+      </div>
+
+      <div class="quick">
+        <button onclick="setValue(1)">1</button>
+        <button onclick="setValue(10)">10</button>
+        <button onclick="setValue(100)">100</button>
+        <button onclick="setValue(1000)">1000</button>
+        <button onclick="clearValue()">Clear</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
