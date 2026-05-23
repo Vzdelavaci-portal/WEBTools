@@ -1,19 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Web Tools</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Tools Hub</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      color: #111827;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(168, 85, 247, 0.18), transparent 35%),
+        linear-gradient(135deg, #f8fafc, #eef2ff);
+      padding: 32px 18px;
+    }
+
+    .container {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 56px 20px 36px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed, #db2777);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #475569;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 14px;
+      margin: 24px 0 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .search {
+      width: min(520px, 100%);
+      padding: 15px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .search:focus {
+      border-color: #6366f1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+      backdrop-filter: blur(14px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(236, 72, 153, 0.12));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 70px rgba(15, 23, 42, 0.16);
+      border-color: rgba(99, 102, 241, 0.45);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      font-size: 2rem;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .open {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #111827;
+      color: white;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      padding: 38px 0 10px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      header {
+        padding-top: 34px;
+      }
+
+      .card {
+        min-height: auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
+    <header>
+      <div class="badge">⚡ Free browser tools</div>
+      <h1>Web Tools Hub</h1>
+      <p class="subtitle">
+        A collection of simple, useful and practical web tools built with HTML, CSS and JavaScript.
+        Open any tool directly in your browser and try it instantly.
+      </p>
 
-  <h1>Web Tools</h1>
-  <p>Collection of simple and useful browser tools.</p>
+      <div class="toolbar">
+        <input
+          type="text"
+          class="search"
+          id="searchInput"
+          placeholder="Search tools..."
+        />
+      </div>
+    </header>
 
-  <ul>
-    <li><a href="GradientGenerator/index.html">Gradient Generator</a></li>
-    <li><a href="UnitConverter/index.html">Unit Converter</a></li>
-    <li><a href="BusinessCardGenerator/index.html">Business Card Generator</a></li>
-  </ul>
+    <main class="grid" id="toolsGrid">
 
+      <a href="GradientGenerator/index.html" class="card" data-title="gradient generator css colors">
+        <div class="icon">🎨</div>
+        <h2>Gradient Generator</h2>
+        <p>Create beautiful CSS gradients and copy the code instantly.</p>
+        <div class="tags">
+          <span class="tag">CSS</span>
+          <span class="tag">Design</span>
+          <span class="tag">Colors</span>
+        </div>
+        <span class="open">Open Tool →</span>
+      </a>
+
+      <a href="UnitConverter/index.html" class="card" data-title="unit converter length weight temperature">
+        <div class="icon">📏</div>
+        <h2>Unit Converter</h2>
+        <p>Convert length, weight, temperature and other common units.</p>
+        <div class="tags">
+          <span class="tag">Calculator</span>
+          <span class="tag">Units</span>
+        </div>
+        <span class="open">Open Tool →</span>
+      </a>
+
+      <a href="BusinessCardGenerator/index.html" class="card" data-title="business card generator print">
+        <div class="icon">💳</div>
+        <h2>Business Card Generator</h2>
+        <p>Generate a clean printable business card directly in the browser.</p>
+        <div class="tags">
+          <span class="tag">Generator</span>
+          <span class="tag">Print</span>
+        </div>
+        <span class="open">Open Tool →</span>
+      </a>
+
+      <a href="AsciiArtGenerator/index.html" class="card" data-title="ascii art generator text">
+        <div class="icon">🔤</div>
+        <h2>ASCII Art Generator</h2>
+        <p>Turn text into ASCII style art and copy the result.</p>
+        <div class="tags">
+          <span class="tag">Text</span>
+          <span class="tag">Generator</span>
+        </div>
+        <span class="open">Open Tool →</span>
+      </a>
+
+    </main>
+
+    <footer>
+      Made with HTML, CSS and JavaScript · Hosted on GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("input", () => {
+      const value = searchInput.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const text = card.innerText.toLowerCase();
+
+        card.style.display =
+          title.includes(value) || text.includes(value)
+            ? "flex"
+            : "none";
+      });
+    });
+  </script>
 </body>
 </html>
