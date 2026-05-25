@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Clipboard Manager</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="app">
+
+    <div class="header">
+      <h1>📋 Clipboard Manager</h1>
+
+      <p>
+        Save, manage and quickly copy your clipboard notes.
+      </p>
+    </div>
+
+    <section class="creator">
+
+      <textarea
+        id="noteInput"
+        placeholder="Write or paste something..."
+      ></textarea>
+
+      <div class="actions">
+        <button id="saveBtn">Save Note</button>
+        <button id="clearAllBtn">Delete All</button>
+      </div>
+
+    </section>
+
+    <section class="notes-section">
+
+      <div class="section-top">
+        <h2>Saved Notes</h2>
+
+        <span id="notesCount">0 notes</span>
+      </div>
+
+      <div class="notes-grid" id="notesGrid"></div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
