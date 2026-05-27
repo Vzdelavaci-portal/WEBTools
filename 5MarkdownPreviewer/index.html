@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Markdown Previewer</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <main class="app">
+    <div class="header">
+      <h1>📝 Markdown Previewer</h1>
+      <p>Write Markdown on the left and preview it live on the right.</p>
+    </div>
+
+    <div class="editor-grid">
+      <section class="editor-box">
+        <div class="topbar">
+          <span>Markdown Editor</span>
+          <button id="clearBtn">Clear</button>
+        </div>
+
+<textarea id="markdownInput" spellcheck="false"># Hello World 👋
+
+## Markdown Previewer
+
+This is **bold text**
+
+This is *italic text*
+
+### List Example
+
+- HTML
+- CSS
+- JavaScript
+
+### Link Example
+
+[Visit GitHub](https://github.com)</textarea>
+      </section>
+
+      <section class="preview-box">
+        <div class="topbar">
+          <span>Live Preview</span>
+        </div>
+
+        <div id="preview"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
