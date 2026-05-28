@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Box Shadow Generator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <div class="header">
+      <h1>🌑 Box Shadow Generator</h1>
+      <p>Create beautiful CSS box shadows and copy the code instantly.</p>
+    </div>
+
+    <section class="generator">
+      <div class="controls">
+        <div class="control">
+          <label for="offsetX">Offset X: <span id="offsetXValue">10px</span></label>
+          <input type="range" id="offsetX" min="-100" max="100" value="10">
+        </div>
+
+        <div class="control">
+          <label for="offsetY">Offset Y: <span id="offsetYValue">10px</span></label>
+          <input type="range" id="offsetY" min="-100" max="100" value="10">
+        </div>
+
+        <div class="control">
+          <label for="blur">Blur: <span id="blurValue">30px</span></label>
+          <input type="range" id="blur" min="0" max="120" value="30">
+        </div>
+
+        <div class="control">
+          <label for="spread">Spread: <span id="spreadValue">0px</span></label>
+          <input type="range" id="spread" min="-50" max="80" value="0">
+        </div>
+
+        <div class="control">
+          <label for="opacity">Opacity: <span id="opacityValue">0.35</span></label>
+          <input type="range" id="opacity" min="0" max="1" value="0.35" step="0.01">
+        </div>
+
+        <div class="control color-control">
+          <label for="shadowColor">Shadow Color</label>
+          <input type="color" id="shadowColor" value="#000000">
+        </div>
+
+        <label class="checkbox">
+          <input type="checkbox" id="inset">
+          Inset shadow
+        </label>
+
+        <div class="buttons">
+          <button id="copyBtn">Copy CSS</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+      </div>
+
+      <div class="preview-area">
+        <div class="preview-card" id="previewBox">
+          <span>Preview</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="code-section">
+      <div class="code-box" id="cssCode"></div>
+      <p class="message" id="message"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
