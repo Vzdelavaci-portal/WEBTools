@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>HEX DEC BIN Converter</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🔢 WebTools #8</p>
+      <h1>HEX DEC BIN Converter</h1>
+      <span>Convert numbers between decimal, binary, hexadecimal and octal.</span>
+    </header>
+
+    <section class="converter">
+      <div class="input-card">
+        <label for="inputValue">Enter value</label>
+
+        <input
+          type="text"
+          id="inputValue"
+          placeholder="Example: 255, FF, 11111111"
+          autocomplete="off"
+        >
+
+        <div class="base-buttons">
+          <button class="base-btn active" data-base="10">DEC</button>
+          <button class="base-btn" data-base="2">BIN</button>
+          <button class="base-btn" data-base="16">HEX</button>
+          <button class="base-btn" data-base="8">OCT</button>
+        </div>
+
+        <p class="status" id="status">Enter a number to start converting.</p>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <span>Decimal</span>
+          <strong id="decValue">—</strong>
+          <button data-copy="decValue">Copy</button>
+        </div>
+
+        <div class="result-card">
+          <span>Binary</span>
+          <strong id="binValue">—</strong>
+          <button data-copy="binValue">Copy</button>
+        </div>
+
+        <div class="result-card">
+          <span>Hexadecimal</span>
+          <strong id="hexValue">—</strong>
+          <button data-copy="hexValue">Copy</button>
+        </div>
+
+        <div class="result-card">
+          <span>Octal</span>
+          <strong id="octValue">—</strong>
+          <button data-copy="octValue">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bit-section">
+      <div class="section-top">
+        <h2>Bit View</h2>
+
+        <select id="bitSize">
+          <option value="8">8-bit</option>
+          <option value="16" selected>16-bit</option>
+          <option value="32">32-bit</option>
+        </select>
+      </div>
+
+      <div class="bit-grid" id="bitGrid"></div>
+    </section>
+
+    <section class="quick-section">
+      <h2>Quick Examples</h2>
+
+      <div class="quick-buttons">
+        <button data-example="255" data-base="10">255 DEC</button>
+        <button data-example="FF" data-base="16">FF HEX</button>
+        <button data-example="10101010" data-base="2">10101010 BIN</button>
+        <button data-example="1024" data-base="10">1024 DEC</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
