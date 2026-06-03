@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Border Radius Playground</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🎛️ WebTools #8</p>
+      <h1>Border Radius Playground</h1>
+      <span>Create rounded corners, pills, circles and organic blob shapes visually.</span>
+    </header>
+
+    <section class="playground">
+      <div class="controls-panel">
+        <div class="mode-switch">
+          <button class="mode-btn active" data-mode="basic">Basic Corners</button>
+          <button class="mode-btn" data-mode="blob">Blob Mode</button>
+        </div>
+
+        <div class="basic-controls" id="basicControls">
+          <div class="control">
+            <label>Top Left <span id="topLeftValue">40px</span></label>
+            <input type="range" id="topLeft" min="0" max="160" value="40">
+          </div>
+
+          <div class="control">
+            <label>Top Right <span id="topRightValue">40px</span></label>
+            <input type="range" id="topRight" min="0" max="160" value="40">
+          </div>
+
+          <div class="control">
+            <label>Bottom Right <span id="bottomRightValue">40px</span></label>
+            <input type="range" id="bottomRight" min="0" max="160" value="40">
+          </div>
+
+          <div class="control">
+            <label>Bottom Left <span id="bottomLeftValue">40px</span></label>
+            <input type="range" id="bottomLeft" min="0" max="160" value="40">
+          </div>
+        </div>
+
+        <div class="blob-controls hidden" id="blobControls">
+          <div class="control">
+            <label>Top X <span id="topXValue">60%</span></label>
+            <input type="range" id="topX" min="10" max="90" value="60">
+          </div>
+
+          <div class="control">
+            <label>Right X <span id="rightXValue">40%</span></label>
+            <input type="range" id="rightX" min="10" max="90" value="40">
+          </div>
+
+          <div class="control">
+            <label>Bottom X <span id="bottomXValue">55%</span></label>
+            <input type="range" id="bottomX" min="10" max="90" value="55">
+          </div>
+
+          <div class="control">
+            <label>Left X <span id="leftXValue">45%</span></label>
+            <input type="range" id="leftX" min="10" max="90" value="45">
+          </div>
+
+          <div class="control">
+            <label>Top Y <span id="topYValue">45%</span></label>
+            <input type="range" id="topY" min="10" max="90" value="45">
+          </div>
+
+          <div class="control">
+            <label>Right Y <span id="rightYValue">55%</span></label>
+            <input type="range" id="rightY" min="10" max="90" value="55">
+          </div>
+
+          <div class="control">
+            <label>Bottom Y <span id="bottomYValue">40%</span></label>
+            <input type="range" id="bottomY" min="10" max="90" value="40">
+          </div>
+
+          <div class="control">
+            <label>Left Y <span id="leftYValue">60%</span></label>
+            <input type="range" id="leftY" min="10" max="90" value="60">
+          </div>
+        </div>
+
+        <div class="preset-section">
+          <h2>Presets</h2>
+
+          <div class="preset-grid">
+            <button data-preset="square">Square</button>
+            <button data-preset="rounded">Rounded</button>
+            <button data-preset="pill">Pill</button>
+            <button data-preset="circle">Circle</button>
+            <button data-preset="blob">Blob</button>
+            <button data-preset="random">Random</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-panel">
+        <div class="preview-wrapper">
+          <div class="preview-shape" id="previewShape">
+            <span>Preview</span>
+          </div>
+        </div>
+
+        <div class="code-card">
+          <div class="code-top">
+            <span>Generated CSS</span>
+            <button id="copyBtn">Copy CSS</button>
+          </div>
+
+          <pre id="cssOutput"></pre>
+          <p class="message" id="message"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
