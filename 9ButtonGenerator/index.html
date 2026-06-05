@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CSS Button Generator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🎨 WebTools #9</p>
+      <h1>CSS Button Generator</h1>
+      <span>Create modern buttons with live preview and instant CSS copy.</span>
+    </header>
+
+    <section class="generator">
+      <aside class="controls">
+        <div class="control">
+          <label for="buttonText">Button Text</label>
+          <input type="text" id="buttonText" value="Get Started">
+        </div>
+
+        <div class="colors">
+          <div class="control">
+            <label for="bgColor">Background</label>
+            <input type="color" id="bgColor" value="#2563eb">
+          </div>
+
+          <div class="control">
+            <label for="textColor">Text Color</label>
+            <input type="color" id="textColor" value="#ffffff">
+          </div>
+        </div>
+
+        <div class="control">
+          <label>Padding X <span id="paddingXValue">28px</span></label>
+          <input type="range" id="paddingX" min="10" max="80" value="28">
+        </div>
+
+        <div class="control">
+          <label>Padding Y <span id="paddingYValue">14px</span></label>
+          <input type="range" id="paddingY" min="8" max="40" value="14">
+        </div>
+
+        <div class="control">
+          <label>Font Size <span id="fontSizeValue">16px</span></label>
+          <input type="range" id="fontSize" min="12" max="32" value="16">
+        </div>
+
+        <div class="control">
+          <label>Border Radius <span id="radiusValue">14px</span></label>
+          <input type="range" id="radius" min="0" max="50" value="14">
+        </div>
+
+        <div class="effects">
+          <label><input type="checkbox" id="shadow" checked> Shadow</label>
+          <label><input type="checkbox" id="gradient"> Gradient</label>
+          <label><input type="checkbox" id="glow"> Glow</label>
+          <label><input type="checkbox" id="outline"> Outline</label>
+          <label><input type="checkbox" id="hoverMove" checked> Hover Animation</label>
+        </div>
+
+        <div class="preset-section">
+          <h2>Presets</h2>
+
+          <div class="preset-grid">
+            <button data-preset="modern">Modern</button>
+            <button data-preset="neon">Neon</button>
+            <button data-preset="glass">Glass</button>
+            <button data-preset="gradient">Gradient</button>
+            <button data-preset="gaming">Gaming</button>
+            <button data-preset="minimal">Minimal</button>
+            <button data-preset="random">Random</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="preview-panel">
+        <div class="preview-area">
+          <button class="preview-button" id="previewButton">Get Started</button>
+        </div>
+
+        <div class="code-card">
+          <div class="code-top">
+            <span>Generated CSS</span>
+            <button id="copyBtn">Copy CSS</button>
+          </div>
+
+          <pre id="cssOutput"></pre>
+          <p class="message" id="message"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
