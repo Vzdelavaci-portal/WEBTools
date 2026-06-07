@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Color Picker & Converter</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🎨 WebTools #10</p>
+      <h1>Color Picker & Converter</h1>
+      <span>Pick a color, convert it and generate a useful color palette.</span>
+    </header>
+
+    <section class="tool">
+      <aside class="controls">
+        <div class="color-preview" id="colorPreview">
+          <span id="previewHex">#3B82F6</span>
+        </div>
+
+        <div class="control">
+          <label for="colorPicker">Pick Color</label>
+          <input type="color" id="colorPicker" value="#3b82f6">
+        </div>
+
+        <div class="control">
+          <label for="hexInput">HEX</label>
+          <input type="text" id="hexInput" value="#3B82F6">
+        </div>
+
+        <button id="randomBtn">Random Color</button>
+      </aside>
+
+      <section class="output">
+        <div class="values-grid">
+          <div class="value-card">
+            <span>HEX</span>
+            <strong id="hexValue">#3B82F6</strong>
+            <button data-copy="hexValue">Copy</button>
+          </div>
+
+          <div class="value-card">
+            <span>RGB</span>
+            <strong id="rgbValue">rgb(59, 130, 246)</strong>
+            <button data-copy="rgbValue">Copy</button>
+          </div>
+
+          <div class="value-card">
+            <span>HSL</span>
+            <strong id="hslValue">hsl(217, 91%, 60%)</strong>
+            <button data-copy="hslValue">Copy</button>
+          </div>
+
+          <div class="value-card">
+            <span>HSV</span>
+            <strong id="hsvValue">hsv(217, 76%, 96%)</strong>
+            <button data-copy="hsvValue">Copy</button>
+          </div>
+
+          <div class="value-card">
+            <span>CMYK</span>
+            <strong id="cmykValue">cmyk(76%, 47%, 0%, 4%)</strong>
+            <button data-copy="cmykValue">Copy</button>
+          </div>
+        </div>
+
+        <section class="palette-section">
+          <div class="section-top">
+            <h2>Generated Palette</h2>
+            <button id="copyPaletteBtn">Copy Palette</button>
+          </div>
+
+          <div class="palette" id="palette"></div>
+        </section>
+
+        <section class="contrast-section">
+          <h2>Contrast Preview</h2>
+
+          <div class="contrast-grid">
+            <div class="contrast-card white-text" id="whiteContrast">
+              <strong>White Text</strong>
+              <span id="whiteScore">AA</span>
+            </div>
+
+            <div class="contrast-card black-text" id="blackContrast">
+              <strong>Black Text</strong>
+              <span id="blackScore">AA</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="gradient-section">
+          <h2>Gradient Preview</h2>
+          <div class="gradient-preview" id="gradientPreview"></div>
+          <pre id="gradientCode"></pre>
+        </section>
+
+        <p class="message" id="message"></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
