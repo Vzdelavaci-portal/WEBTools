@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Glassmorphism Generator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🪟 WebTools #11</p>
+      <h1>Glassmorphism Generator</h1>
+      <span>Create modern glass UI cards with live preview and instant CSS copy.</span>
+    </header>
+
+    <section class="generator">
+      <aside class="controls">
+        <div class="control">
+          <label>Blur <span id="blurValue">18px</span></label>
+          <input type="range" id="blur" min="0" max="50" value="18">
+        </div>
+
+        <div class="control">
+          <label>Opacity <span id="opacityValue">0.18</span></label>
+          <input type="range" id="opacity" min="0" max="0.8" step="0.01" value="0.18">
+        </div>
+
+        <div class="control">
+          <label>Border Radius <span id="radiusValue">28px</span></label>
+          <input type="range" id="radius" min="0" max="60" value="28">
+        </div>
+
+        <div class="control">
+          <label>Border Opacity <span id="borderOpacityValue">0.28</span></label>
+          <input type="range" id="borderOpacity" min="0" max="1" step="0.01" value="0.28">
+        </div>
+
+        <div class="control">
+          <label>Shadow <span id="shadowValue">35%</span></label>
+          <input type="range" id="shadow" min="0" max="80" value="35">
+        </div>
+
+        <div class="effects">
+          <label>
+            <input type="checkbox" id="glow">
+            Neon Glow
+          </label>
+
+          <label>
+            <input type="checkbox" id="lightBorder" checked>
+            Light Border
+          </label>
+        </div>
+
+        <div class="preset-section">
+          <h2>Backgrounds</h2>
+
+          <div class="preset-grid">
+            <button data-bg="ocean">Ocean</button>
+            <button data-bg="sunset">Sunset</button>
+            <button data-bg="purple">Purple</button>
+            <button data-bg="cyber">Cyber</button>
+            <button data-bg="aurora">Aurora</button>
+            <button data-bg="random">Random</button>
+          </div>
+        </div>
+
+        <div class="preset-section">
+          <h2>Glass Presets</h2>
+
+          <div class="preset-grid">
+            <button data-preset="apple">Apple</button>
+            <button data-preset="windows">Windows</button>
+            <button data-preset="frosted">Frosted</button>
+            <button data-preset="neon">Neon</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="preview-panel">
+        <div class="preview-stage" id="previewStage">
+          <div class="glass-card" id="glassCard">
+            <div class="glass-icon">✨</div>
+            <h2>Glass Card</h2>
+            <p>Modern transparent UI effect with blur, depth and light.</p>
+            <button>Explore</button>
+          </div>
+        </div>
+
+        <div class="code-card">
+          <div class="code-top">
+            <span>Generated CSS</span>
+            <button id="copyBtn">Copy CSS</button>
+          </div>
+
+          <pre id="cssOutput"></pre>
+          <p class="message" id="message"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
