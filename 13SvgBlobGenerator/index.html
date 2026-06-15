@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SVG Blob Generator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🫧 WebTools #13</p>
+      <h1>SVG Blob Generator</h1>
+      <span>Create organic SVG blob shapes with live preview and instant export.</span>
+    </header>
+
+    <section class="generator">
+      <aside class="controls">
+        <div class="control">
+          <label>Points <span id="pointsValue">8</span></label>
+          <input type="range" id="points" min="4" max="16" value="8">
+        </div>
+
+        <div class="control">
+          <label>Irregularity <span id="irregularityValue">35%</span></label>
+          <input type="range" id="irregularity" min="0" max="70" value="35">
+        </div>
+
+        <div class="control">
+          <label>Smoothness <span id="smoothnessValue">65%</span></label>
+          <input type="range" id="smoothness" min="20" max="100" value="65">
+        </div>
+
+        <div class="colors">
+          <div class="control">
+            <label for="color1">Color 1</label>
+            <input type="color" id="color1" value="#38bdf8">
+          </div>
+
+          <div class="control">
+            <label for="color2">Color 2</label>
+            <input type="color" id="color2" value="#8b5cf6">
+          </div>
+        </div>
+
+        <div class="effects">
+          <label>
+            <input type="checkbox" id="useGradient" checked>
+            Use Gradient
+          </label>
+
+          <label>
+            <input type="checkbox" id="showGrid">
+            Show Grid
+          </label>
+        </div>
+
+        <div class="buttons">
+          <button id="randomBtn">Random Blob</button>
+          <button id="copySvgBtn">Copy SVG</button>
+          <button id="copyCssBtn">Copy CSS</button>
+        </div>
+      </aside>
+
+      <section class="preview-panel">
+        <div class="preview-stage" id="previewStage">
+          <svg
+            id="blobSvg"
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg"
+          ></svg>
+        </div>
+
+        <div class="code-card">
+          <div class="code-top">
+            <span>Generated SVG</span>
+          </div>
+
+          <pre id="svgOutput"></pre>
+          <p class="message" id="message"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
