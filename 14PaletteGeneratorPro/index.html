@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Palette Generator Pro</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🎨 WebTools #14</p>
+      <h1>Palette Generator Pro</h1>
+      <span>Generate beautiful color palettes from one base color.</span>
+    </header>
+
+    <section class="tool">
+      <aside class="controls">
+        <div class="preview" id="mainPreview">
+          <span id="mainHex">#3B82F6</span>
+        </div>
+
+        <div class="control">
+          <label for="baseColor">Base Color</label>
+          <input type="color" id="baseColor" value="#3b82f6">
+        </div>
+
+        <div class="control">
+          <label for="hexInput">HEX Value</label>
+          <input type="text" id="hexInput" value="#3B82F6">
+        </div>
+
+        <div class="control">
+          <label for="paletteType">Palette Type</label>
+          <select id="paletteType">
+            <option value="monochromatic">Monochromatic</option>
+            <option value="complementary">Complementary</option>
+            <option value="analogous">Analogous</option>
+            <option value="triadic">Triadic</option>
+            <option value="split">Split Complementary</option>
+          </select>
+        </div>
+
+        <div class="buttons">
+          <button id="randomBtn">Random Color</button>
+          <button id="copyPaletteBtn">Copy Palette</button>
+        </div>
+      </aside>
+
+      <section class="output">
+        <div class="palette-header">
+          <h2 id="paletteTitle">Monochromatic Palette</h2>
+          <p id="paletteDescription">
+            Different shades and tints of one base color.
+          </p>
+        </div>
+
+        <div class="palette-grid" id="paletteGrid"></div>
+
+        <section class="usage-section">
+          <h2>UI Preview</h2>
+
+          <div class="ui-preview" id="uiPreview">
+            <div class="ui-card">
+              <span class="badge">Palette Preview</span>
+              <h3>Modern Web Design</h3>
+              <p>
+                Use generated colors for buttons, cards, backgrounds and accents.
+              </p>
+              <button>Get Started</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="code-section">
+          <div class="code-top">
+            <span>CSS Variables</span>
+            <button id="copyCssBtn">Copy CSS</button>
+          </div>
+
+          <pre id="cssOutput"></pre>
+        </section>
+
+        <p class="message" id="message"></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
