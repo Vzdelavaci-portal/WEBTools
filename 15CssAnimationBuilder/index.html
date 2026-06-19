@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CSS Animation Builder</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🎬 WebTools #15</p>
+      <h1>CSS Animation Builder</h1>
+      <span>Create CSS animations visually and export ready-to-use code.</span>
+    </header>
+
+    <section class="builder">
+      <aside class="controls">
+        <div class="control">
+          <label for="animationType">Animation Type</label>
+          <select id="animationType">
+            <option value="fadeIn">Fade In</option>
+            <option value="slideUp">Slide Up</option>
+            <option value="slideDown">Slide Down</option>
+            <option value="slideLeft">Slide Left</option>
+            <option value="slideRight">Slide Right</option>
+            <option value="scaleIn">Scale In</option>
+            <option value="rotate">Rotate</option>
+            <option value="bounce">Bounce</option>
+            <option value="pulse">Pulse</option>
+            <option value="shake">Shake</option>
+            <option value="flip">Flip</option>
+            <option value="swing">Swing</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="objectType">Animated Object</label>
+          <select id="objectType">
+            <option value="box">Box</option>
+            <option value="circle">Circle</option>
+            <option value="button">Button</option>
+            <option value="card">Card</option>
+            <option value="text">Text</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="objectColor">Color</label>
+          <input type="color" id="objectColor" value="#38bdf8">
+        </div>
+
+        <div class="control">
+          <label>Duration <span id="durationValue">1.20s</span></label>
+          <input type="range" id="duration" min="0.2" max="5" step="0.1" value="1.2">
+        </div>
+
+        <div class="control">
+          <label>Delay <span id="delayValue">0.00s</span></label>
+          <input type="range" id="delay" min="0" max="5" step="0.1" value="0">
+        </div>
+
+        <div class="control">
+          <label for="iteration">Iterations</label>
+          <select id="iteration">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="infinite" selected>Infinite</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="easing">Timing Function</label>
+          <select id="easing">
+            <option value="ease">ease</option>
+            <option value="linear">linear</option>
+            <option value="ease-in">ease-in</option>
+            <option value="ease-out">ease-out</option>
+            <option value="ease-in-out" selected>ease-in-out</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="direction">Direction</label>
+          <select id="direction">
+            <option value="normal">normal</option>
+            <option value="reverse">reverse</option>
+            <option value="alternate" selected>alternate</option>
+            <option value="alternate-reverse">alternate-reverse</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button id="replayBtn">Replay</button>
+          <button id="randomBtn">Random</button>
+          <button id="copyCssBtn">Copy CSS</button>
+        </div>
+      </aside>
+
+      <section class="preview-panel">
+        <div class="preview-stage">
+          <div id="animatedObject" class="animated-object box">
+            <span>Animate</span>
+          </div>
+        </div>
+
+        <div class="code-card">
+          <div class="code-top">
+            <span>Generated CSS</span>
+          </div>
+
+          <pre id="cssOutput"></pre>
+          <p class="message" id="message"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
