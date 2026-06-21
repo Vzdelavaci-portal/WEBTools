@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>📱 WebTools #16</p>
+      <h1>QR Code Generator Pro</h1>
+      <span>Create custom QR codes for URL, text, email, phone, SMS and WiFi.</span>
+    </header>
+
+    <section class="tool">
+      <aside class="controls">
+        <div class="control">
+          <label>QR Type</label>
+          <select id="qrType">
+            <option value="url">URL</option>
+            <option value="text">Text</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="sms">SMS</option>
+            <option value="wifi">WiFi</option>
+          </select>
+        </div>
+
+        <div id="dynamicFields"></div>
+
+        <div class="colors">
+          <div class="control">
+            <label>QR Color</label>
+            <input type="color" id="qrColor" value="#020617">
+          </div>
+
+          <div class="control">
+            <label>Background</label>
+            <input type="color" id="bgColor" value="#ffffff">
+          </div>
+        </div>
+
+        <div class="control">
+          <label>Size <span id="sizeValue">300px</span></label>
+          <input type="range" id="qrSize" min="160" max="520" value="300">
+        </div>
+
+        <div class="buttons">
+          <button id="generateBtn">Generate QR</button>
+          <button id="downloadBtn">Download PNG</button>
+          <button id="copyDataBtn">Copy Data</button>
+          <button id="clearHistoryBtn">Clear History</button>
+        </div>
+      </aside>
+
+      <section class="preview-panel">
+        <div class="qr-stage">
+          <div id="qrCode"></div>
+        </div>
+
+        <div class="data-card">
+          <h2>QR Data</h2>
+          <pre id="qrDataOutput"></pre>
+          <p class="message" id="message"></p>
+        </div>
+
+        <div class="history-card">
+          <h2>Recent QR Codes</h2>
+          <div id="historyList"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
