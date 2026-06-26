@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mini Kanban Board</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>📋 WebTools #17</p>
+      <h1>Mini Kanban Board</h1>
+      <span>Organize tasks with drag & drop, priorities, labels and local storage.</span>
+    </header>
+
+    <section class="top-panel">
+      <div class="stats">
+        <div class="stat-card">
+          <span>Total Tasks</span>
+          <strong id="totalTasks">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>Active</span>
+          <strong id="activeTasks">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>Done</span>
+          <strong id="doneTasks">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>Progress</span>
+          <strong id="progressValue">0%</strong>
+        </div>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+    </section>
+
+    <section class="actions-panel">
+      <input type="text" id="searchInput" placeholder="Search tasks..." />
+
+      <select id="labelFilter">
+        <option value="all">All Labels</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="School">School</option>
+        <option value="Project">Project</option>
+      </select>
+
+      <button id="addTaskBtn">Add Task</button>
+      <button id="exportBtn">Export JSON</button>
+
+      <label class="import-btn">
+        Import JSON
+        <input type="file" id="importInput" accept=".json">
+      </label>
+    </section>
+
+    <section class="board">
+      <div class="column" data-status="todo">
+        <div class="column-header">
+          <h2>📋 To Do</h2>
+          <span id="todoCount">0</span>
+        </div>
+
+        <div class="task-list" id="todoList"></div>
+      </div>
+
+      <div class="column" data-status="progress">
+        <div class="column-header">
+          <h2>⚡ In Progress</h2>
+          <span id="progressCount">0</span>
+        </div>
+
+        <div class="task-list" id="progressList"></div>
+      </div>
+
+      <div class="column" data-status="done">
+        <div class="column-header">
+          <h2>✅ Done</h2>
+          <span id="doneCount">0</span>
+        </div>
+
+        <div class="task-list" id="doneList"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="taskModal">
+    <div class="modal-card">
+      <div class="modal-top">
+        <h2 id="modalTitle">Add Task</h2>
+        <button id="closeModalBtn">×</button>
+      </div>
+
+      <div class="form">
+        <div class="field">
+          <label>Title</label>
+          <input type="text" id="taskTitle" placeholder="Task title">
+        </div>
+
+        <div class="field">
+          <label>Description</label>
+          <textarea id="taskDescription" placeholder="Task description"></textarea>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label>Priority</label>
+            <select id="taskPriority">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Label</label>
+            <select id="taskLabel">
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="School">School</option>
+              <option value="Project">Project</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Due Date</label>
+          <input type="date" id="taskDueDate">
+        </div>
+
+        <div class="field">
+          <label>Checklist</label>
+          <textarea id="taskChecklist" placeholder="One item per line"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button id="saveTaskBtn">Save Task</button>
+          <button id="deleteTaskBtn" class="danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="confetti"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
