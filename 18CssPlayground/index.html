@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Playground</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <p>🎨 WebTools #18</p>
+      <h1>CSS Playground</h1>
+      <span>Experiment with CSS visually. Transform, filter, animate and export your style.</span>
+    </header>
+
+    <section class="playground">
+      <aside class="controls">
+        <div class="toolbar">
+          <button id="randomBtn">Random</button>
+          <button id="resetBtn">Reset</button>
+          <button id="copyCssBtn">Copy CSS</button>
+        </div>
+
+        <div class="group">
+          <h2>Presets</h2>
+          <div class="preset-grid">
+            <button data-preset="glass">Glass</button>
+            <button data-preset="neon">Neon</button>
+            <button data-preset="clay">Clay</button>
+            <button data-preset="minimal">Minimal</button>
+            <button data-preset="cyber">Cyber</button>
+            <button data-preset="soft">Soft UI</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Appearance</h2>
+
+          <div class="control">
+            <label>Background</label>
+            <input type="color" id="bgColor" value="#2563eb">
+          </div>
+
+          <div class="control">
+            <label>Text Color</label>
+            <input type="color" id="textColor" value="#ffffff">
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="useGradient" checked>
+            Use Gradient
+          </label>
+
+          <div class="control">
+            <label>Gradient Color</label>
+            <input type="color" id="gradientColor" value="#8b5cf6">
+          </div>
+
+          <div class="control">
+            <label>Opacity <span id="opacityValue">1.00</span></label>
+            <input type="range" id="opacity" min="0.1" max="1" step="0.01" value="1">
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Border</h2>
+
+          <div class="control">
+            <label>Radius <span id="radiusValue">28px</span></label>
+            <input type="range" id="radius" min="0" max="80" value="28">
+          </div>
+
+          <div class="control">
+            <label>Width <span id="borderWidthValue">1px</span></label>
+            <input type="range" id="borderWidth" min="0" max="12" value="1">
+          </div>
+
+          <div class="control">
+            <label>Border Color</label>
+            <input type="color" id="borderColor" value="#ffffff">
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Shadow</h2>
+
+          <div class="control">
+            <label>Offset X <span id="shadowXValue">0px</span></label>
+            <input type="range" id="shadowX" min="-80" max="80" value="0">
+          </div>
+
+          <div class="control">
+            <label>Offset Y <span id="shadowYValue">24px</span></label>
+            <input type="range" id="shadowY" min="-80" max="80" value="24">
+          </div>
+
+          <div class="control">
+            <label>Blur <span id="shadowBlurValue">70px</span></label>
+            <input type="range" id="shadowBlur" min="0" max="140" value="70">
+          </div>
+
+          <div class="control">
+            <label>Shadow Color</label>
+            <input type="color" id="shadowColor" value="#2563eb">
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Transform</h2>
+
+          <div class="control">
+            <label>Rotate <span id="rotateValue">0deg</span></label>
+            <input type="range" id="rotate" min="-180" max="180" value="0">
+          </div>
+
+          <div class="control">
+            <label>Scale <span id="scaleValue">1.00</span></label>
+            <input type="range" id="scale" min="0.4" max="1.8" step="0.01" value="1">
+          </div>
+
+          <div class="control">
+            <label>Translate X <span id="translateXValue">0px</span></label>
+            <input type="range" id="translateX" min="-160" max="160" value="0">
+          </div>
+
+          <div class="control">
+            <label>Translate Y <span id="translateYValue">0px</span></label>
+            <input type="range" id="translateY" min="-160" max="160" value="0">
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Filters</h2>
+
+          <div class="control">
+            <label>Blur <span id="filterBlurValue">0px</span></label>
+            <input type="range" id="filterBlur" min="0" max="12" value="0">
+          </div>
+
+          <div class="control">
+            <label>Brightness <span id="brightnessValue">100%</span></label>
+            <input type="range" id="brightness" min="40" max="180" value="100">
+          </div>
+
+          <div class="control">
+            <label>Contrast <span id="contrastValue">100%</span></label>
+            <input type="range" id="contrast" min="40" max="180" value="100">
+          </div>
+
+          <div class="control">
+            <label>Hue <span id="hueValue">0deg</span></label>
+            <input type="range" id="hue" min="0" max="360" value="0">
+          </div>
+
+          <div class="control">
+            <label>Saturate <span id="saturateValue">100%</span></label>
+            <input type="range" id="saturate" min="0" max="250" value="100">
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Animation</h2>
+
+          <div class="control">
+            <label>Animation</label>
+            <select id="animation">
+              <option value="none">None</option>
+              <option value="float">Float</option>
+              <option value="pulse">Pulse</option>
+              <option value="rotate">Rotate</option>
+              <option value="shake">Shake</option>
+              <option value="swing">Swing</option>
+            </select>
+          </div>
+
+          <div class="control">
+            <label>Duration <span id="animationDurationValue">2.00s</span></label>
+            <input type="range" id="animationDuration" min="0.5" max="6" step="0.1" value="2">
+          </div>
+        </div>
+      </aside>
+
+      <section class="preview-panel">
+        <div class="stage">
+          <div class="preview-card" id="previewCard">
+            <span class="badge">CSS Lab</span>
+            <h2>Live Playground</h2>
+            <p>Change controls on the left and watch the style update instantly.</p>
+            <button>Hover Me</button>
+          </div>
+        </div>
+
+        <div class="code-card">
+          <div class="code-top">
+            <span>Generated CSS</span>
+          </div>
+          <pre id="cssOutput"></pre>
+          <p id="message"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
